@@ -38,9 +38,24 @@ class App extends React.Component {
     return (
       <div>
         <h1>Adopt Me</h1>
-        <Pet name="Lunda" animal="Dog" breed="Whoknows" />
-        <Pet name="Sam" animal="Log" breed="Whoknows" />
-        <Pet name="Tham" animal="Fog" breed="Whoknows" />
+        <div>
+          {this.state.pets.map(pet => {
+            let breed;
+            if (Array.isArray(pet.breeds.breed)) {
+              breed = pet.breeds.breed.join(', ');
+            } else {
+              breed = pet.breeds.breed;
+            }
+            return (
+              <Pet
+                key={pet.id}
+                name={pet.name}
+                animal={pet.animal}
+                breed={breed}
+              />
+            );
+          })}
+        </div>
       </div>
     );
   }

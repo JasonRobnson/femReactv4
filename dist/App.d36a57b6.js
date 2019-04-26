@@ -25761,7 +25761,7 @@ var _react = _interopRequireDefault(require("react"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var Pet = function Pet(props) {
-  return _react.default.createElement("div", null, _react.default.createElement("h1", null, props.name), _react.default.createElement("h2", null, props.animal), _react.default.createElement("h3", null, props.breed.toUpperCase()));
+  return _react.default.createElement("div", null, _react.default.createElement("h1", null, props.name), _react.default.createElement("h2", null, props.animal), _react.default.createElement("h3", null, props.breed));
 };
 
 var _default = Pet;
@@ -46470,19 +46470,22 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      return _react.default.createElement("div", null, _react.default.createElement("h1", null, "Adopt Me"), _react.default.createElement(_Pet.default, {
-        name: "Lunda",
-        animal: "Dog",
-        breed: "Whoknows"
-      }), _react.default.createElement(_Pet.default, {
-        name: "Sam",
-        animal: "Log",
-        breed: "Whoknows"
-      }), _react.default.createElement(_Pet.default, {
-        name: "Tham",
-        animal: "Fog",
-        breed: "Whoknows"
-      }));
+      return _react.default.createElement("div", null, _react.default.createElement("h1", null, "Adopt Me"), _react.default.createElement("div", null, this.state.pets.map(function (pet) {
+        var breed;
+
+        if (Array.isArray(pet.breeds.breed)) {
+          breed = pet.breeds.breed.join(', ');
+        } else {
+          breed = pet.breeds.breed;
+        }
+
+        return _react.default.createElement(_Pet.default, {
+          key: pet.id,
+          name: pet.name,
+          animal: pet.animal,
+          breed: breed
+        });
+      })));
     }
   }]);
 
@@ -46518,7 +46521,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58328" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61212" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
