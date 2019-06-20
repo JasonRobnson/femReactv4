@@ -16,7 +16,7 @@ class App extends React.Component {
       .find({ output: 'full', location: 'Minneapolis, MN' })
       .then(data => {
         let pets;
-
+        console.log(data);
         // data is shared in an XML format, and if its a single item returns an object, more than one returns an array
         if (data.petfinder.pets && data.petfinder.pets.pet) {
           if (Array.isArray(data.petfinder.pets.pet)) {
@@ -31,6 +31,7 @@ class App extends React.Component {
           pets
         });
       });
+
     // const promise = petfinder.breed.list({ animal: 'dog' });
     // promise.then(console.log, console.error);
   }
@@ -52,6 +53,8 @@ class App extends React.Component {
                 name={pet.name}
                 animal={pet.animal}
                 breed={breed}
+                media={pet.media}
+                location={`${pet.contact.city},${pet.contact.state}`}
               />
             );
           })}
