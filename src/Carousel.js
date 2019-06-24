@@ -17,13 +17,14 @@ class Carousel extends React.Component {
   }
   render() {
     const { photos, active } = this.state;
+
     return (
       <div className="carousel">
         <img src={photos[active].value} alt="primary animal" />
         <div className="carousel-smaller">
           {photos.map((photo, index) => (
             <img
-              key={photo.value}
+              key={photo['@id']}
               src={photo.value}
               className={index === active ? 'active' : ' '}
               alt="animal thumbnail"

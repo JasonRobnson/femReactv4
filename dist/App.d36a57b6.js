@@ -49264,7 +49264,7 @@ function (_React$Component) {
         className: "carousel-smaller"
       }, photos.map(function (photo, index) {
         return _react.default.createElement("img", {
-          key: photo.value,
+          key: photo['@id'],
           src: photo.value,
           className: index === active ? 'active' : ' ',
           alt: "animal thumbnail"
@@ -49503,7 +49503,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52296" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54284" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
